@@ -31,7 +31,6 @@ public class FacteursPremiersTest {
     @Test
     void generate_1_devrait_retourner_1_liste_vide() {
         // GIVEN
-        expectedFacteurs = new ArrayList<Integer>();
 
         // WHEN
         actualFacteurs = FacteursPremiers.generate(1);
@@ -43,7 +42,6 @@ public class FacteursPremiersTest {
     @Test
     void generate_2_devrait_retourner_liste_contenant_2() {
         // GIVEN
-        expectedFacteurs = new ArrayList<Integer>();
         expectedFacteurs.add(2);
 
         // WHEN
