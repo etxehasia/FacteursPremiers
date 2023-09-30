@@ -92,4 +92,15 @@ public class FacteursPremiersTest {
         // THEN
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
     }
+    @Test
+    void generate_8_devrait_retourner_liste_contenant_2_2_2() {
+        // GIVEN
+        expectedFacteurs = listeFab(2,2,2);
+
+        // WHEN
+        actualFacteurs = FacteursPremiers.generate(8);
+
+        // THEN
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
 }
