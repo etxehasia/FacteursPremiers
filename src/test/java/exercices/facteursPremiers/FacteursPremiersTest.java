@@ -50,4 +50,15 @@ public class FacteursPremiersTest {
         // THEN
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
     }
+    @Test
+    void generate_3_devrait_retourner_liste_contenant_3() {
+        // GIVEN
+        expectedFacteurs.add(3);
+
+        // WHEN
+        actualFacteurs = FacteursPremiers.generate(3);
+
+        // THEN
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
 }
