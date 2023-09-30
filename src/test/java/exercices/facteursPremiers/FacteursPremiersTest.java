@@ -51,7 +51,6 @@ public class FacteursPremiersTest {
     @Test
     void generate_2_devrait_retourner_liste_contenant_2() {
         // GIVEN
-        //expectedFacteurs.add(2);
         expectedFacteurs = listeFab(2);
 
         // WHEN
@@ -63,7 +62,6 @@ public class FacteursPremiersTest {
     @Test
     void generate_3_devrait_retourner_liste_contenant_3() {
         // GIVEN
-        //expectedFacteurs.add(3);
         expectedFacteurs = listeFab(3);
 
         // WHEN
@@ -75,14 +73,21 @@ public class FacteursPremiersTest {
     @Test
     void generate_4_devrait_retourner_liste_contenant_2_2() {
         // GIVEN
-        /*
-        expectedFacteurs.add(2);
-        expectedFacteurs.add(2);
-        */
         expectedFacteurs = listeFab(2,2);
 
         // WHEN
         actualFacteurs = FacteursPremiers.generate(4);
+
+        // THEN
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+    @Test
+    void generate_6_devrait_retourner_liste_contenant_2_3() {
+        // GIVEN
+        expectedFacteurs = listeFab(2,3);
+
+        // WHEN
+        actualFacteurs = FacteursPremiers.generate(6);
 
         // THEN
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
