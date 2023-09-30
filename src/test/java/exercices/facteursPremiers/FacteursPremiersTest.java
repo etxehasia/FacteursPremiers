@@ -18,6 +18,14 @@ public class FacteursPremiersTest {
     private List<Integer> actualFacteurs ;
     private List<Integer> expectedFacteurs ;
 
+    private List<Integer> listeFab(int... composants) {
+        List<Integer> listeARetourner = new ArrayList<Integer>();
+        for (int i : composants)
+        {
+            listeARetourner.add(i);
+        }
+        return listeARetourner;
+    }
     @BeforeEach
     void setUp() {
         actualFacteurs = new ArrayList<Integer>();
@@ -31,6 +39,7 @@ public class FacteursPremiersTest {
     @Test
     void generate_1_devrait_retourner_1_liste_vide() {
         // GIVEN
+        expectedFacteurs = listeFab();
 
         // WHEN
         actualFacteurs = FacteursPremiers.generate(1);
@@ -42,7 +51,8 @@ public class FacteursPremiersTest {
     @Test
     void generate_2_devrait_retourner_liste_contenant_2() {
         // GIVEN
-        expectedFacteurs.add(2);
+        //expectedFacteurs.add(2);
+        expectedFacteurs = listeFab(2);
 
         // WHEN
         actualFacteurs = FacteursPremiers.generate(2);
@@ -53,10 +63,26 @@ public class FacteursPremiersTest {
     @Test
     void generate_3_devrait_retourner_liste_contenant_3() {
         // GIVEN
-        expectedFacteurs.add(3);
+        //expectedFacteurs.add(3);
+        expectedFacteurs = listeFab(3);
 
         // WHEN
         actualFacteurs = FacteursPremiers.generate(3);
+
+        // THEN
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+    @Test
+    void generate_4_devrait_retourner_liste_contenant_2_2() {
+        // GIVEN
+        /*
+        expectedFacteurs.add(2);
+        expectedFacteurs.add(2);
+        */
+        expectedFacteurs = listeFab(2,2);
+
+        // WHEN
+        actualFacteurs = FacteursPremiers.generate(4);
 
         // THEN
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
