@@ -6,12 +6,16 @@ import java.util.List;
 public class FacteursPremiers {
     public static List<Integer> generate(int nbre) {
         List <Integer> facteurs = new ArrayList<Integer>();
-        while (nbre % 2 ==0) {
-            facteurs.add(2);
-            nbre = nbre / 2;
-        }
-        if (nbre > 1) {
-            facteurs.add(nbre);
+        int candidat = 2;
+        while (nbre > 1) {
+            // on divise nbre par candidat autant de fois que possible
+            while (nbre % candidat == 0) {
+                facteurs.add(candidat); // il est forcément premier car on
+                    // a déjà divisé par tous les diviseurs de candidat
+                nbre = nbre / candidat;
+            }
+            // on peut maintenant passer au candidat suivant
+            candidat ++;
         }
         return facteurs;
     }
